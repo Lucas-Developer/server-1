@@ -384,7 +384,7 @@ extern ulong	srv_LRU_scan_depth;
 extern ulong	srv_buf_pool_dump_pct;	/*!< dump that may % of each buffer
 					pool during BP dump */
 extern ulong	srv_flush_neighbors;
-/** Previously requested size */
+/** Previously requested size. */
 extern ulint	srv_buf_pool_old_size;
 /** Current size as scaling factor for the other components */
 extern ulint	srv_buf_pool_base_size;
