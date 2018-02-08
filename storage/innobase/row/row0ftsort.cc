@@ -761,7 +761,7 @@ It also performs the initial in memory sort of the parsed records.
 @return OS_THREAD_DUMMY_RETURN */
 static
 os_thread_ret_t
-fts_parallel_tokenization(
+DECLARE_THREAD(fts_parallel_tokenization)(
 /*======================*/
 	void*		arg)	/*!< in: psort_info for the thread */
 {
@@ -1101,7 +1101,7 @@ Function performs the merge and insertion of the sorted records.
 @return OS_THREAD_DUMMY_RETURN */
 static
 os_thread_ret_t
-fts_parallel_merge(
+DECLARE_THREAD(fts_parallel_merge)(
 /*===============*/
 	void*		arg)		/*!< in: parallel merge info */
 {

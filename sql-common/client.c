@@ -915,13 +915,6 @@ static int cli_report_progress(MYSQL *mysql, char *pkt, uint length)
   return 0;
 }
 
-#ifdef __WIN__
-static my_bool is_NT(void)
-{
-  char *os=getenv("OS");
-  return (os && !strcmp(os, "Windows_NT")) ? 1 : 0;
-}
-#endif
 
 /**************************************************************************
   Shut down connection
@@ -3262,7 +3255,7 @@ CLI_MYSQL_REAL_CONNECT(MYSQL *mysql,const char *host, const char *user,
   if (!net->vio &&
       (mysql->options.protocol == MYSQL_PROTOCOL_PIPE ||
        (host && !strcmp(host,LOCAL_HOST_NAMEDPIPE)) ||
-       (! have_tcpip && (unix_socket || !host && is_NT()))))
+       (! have_tcpip && (unix_socket || !host ))))
   {
     if ((hPipe= create_named_pipe(mysql, mysql->options.connect_timeout,
                                   (char**) &host, (char**) &unix_socket)) ==

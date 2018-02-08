@@ -151,8 +151,8 @@ TP_connection_win::TP_connection_win(CONNECT *c) :
   timeout(ULONGLONG_MAX), 
   callback_instance(0),
   io(0),
-  shm_read(0),
   timer(0),
+  shm_read(0),
   work(0)
 {
 }

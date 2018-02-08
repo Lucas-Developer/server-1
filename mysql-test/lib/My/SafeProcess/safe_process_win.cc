@@ -298,7 +298,7 @@ int main(int argc, const char** argv )
   BOOL process_created= FALSE;
   BOOL jobobject_assigned= FALSE;
 
-  for (int i=0; i < sizeof(create_flags)/sizeof(create_flags[0]); i++)
+  for (size_t i=0; i < sizeof(create_flags)/sizeof(create_flags[0]); i++)
   { 
     process_created= CreateProcess(NULL, (LPSTR)child_args,
                     NULL,

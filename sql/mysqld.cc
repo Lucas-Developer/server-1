@@ -6187,10 +6187,10 @@ int mysqld_main(int argc, char **argv)
 ****************************************************************************/
 
 #if defined(__WIN__) && !defined(EMBEDDED_LIBRARY)
-int mysql_service(void *p)
+void  mysql_service(void *p)
 {
   if (my_thread_init())
-    return 1;
+    abort();
   
   if (use_opt_args)
     win_main(opt_argc, opt_argv);
@@ -6198,7 +6198,6 @@ int mysql_service(void *p)
     win_main(Service.my_argc, Service.my_argv);
 
   my_thread_end();
-  return 0;
 }
 
 
@@ -6249,7 +6248,7 @@ default_service_handling(char **argv,
      the option name) should be quoted if it contains a string.  
     */
     *pos++= ' ';
-    if (opt_delim= strchr(extra_opt, '='))
+    if ((opt_delim= strchr(extra_opt, '=')))
     {
       size_t length= ++opt_delim - extra_opt;
       pos= strnmov(pos, extra_opt, length);

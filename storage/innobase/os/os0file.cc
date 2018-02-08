@@ -4546,7 +4546,7 @@ bool
 os_file_close_func(
 	os_file_t	file)
 {
-	ut_a(file > 0);
+	ut_a(file);
 
 	if (CloseHandle(file)) {
 		return(true);

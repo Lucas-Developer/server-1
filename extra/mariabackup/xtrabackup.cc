@@ -2455,7 +2455,7 @@ xtrabackup_copy_logfile(copy_logfile copy)
 	return(false);
 }
 
-static os_thread_ret_t log_copying_thread(void*)
+static os_thread_ret_t DECLARE_THREAD(log_copying_thread)(void*)
 {
 	/*
 	  Initialize mysys thread-specific memory so we can
@@ -2478,7 +2478,7 @@ static os_thread_ret_t log_copying_thread(void*)
 }
 
 /* io throttle watching (rough) */
-static os_thread_ret_t io_watching_thread(void*)
+static os_thread_ret_t DECLARE_THREAD(io_watching_thread)(void*)
 {
 	/* currently, for --backup only */
 	ut_a(xtrabackup_backup);
@@ -2504,7 +2504,7 @@ static os_thread_ret_t io_watching_thread(void*)
 Datafiles copying thread.*/
 static
 os_thread_ret_t
-data_copy_thread_func(
+DECLARE_THREAD(data_copy_thread_func)(
 /*==================*/
 	void *arg) /* thread context */
 {

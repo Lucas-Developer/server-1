@@ -1,6 +1,9 @@
 IF(NOT MSVC)
   RETURN()
 ENDIF()
+IF(CMAKE_C_COMPILER_ID MATCHES Clang)
+  RETURN()
+ENDIF()
 IF(CMAKE_USING_VC_FREE_TOOLS)
   # No MFC, so it cannot be built
   RETURN()
